@@ -26,4 +26,13 @@ model Category {
   products Product[]
 }
 
+model OrderFood {
+  id Int @id @default(autoincrement())  
+  name String
+  date String
+  total Float
+  order Json
+}
+
+
 
