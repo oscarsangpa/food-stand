@@ -1,11 +1,11 @@
 
 const categories = [
     {
-        icon: "coffee",
+        icon: "cafe",
         name: "Coffee"
       },
       {
-        icon: "burger",
+        icon: "hamburguesa",
         name: "Burger"
       },
       {
@@ -13,15 +13,15 @@ const categories = [
         name: "Pizzas"
       },
       {
-        icon: "donuts",
+        icon: "dona",
         name: "Donuts"
       },
       {
-        icon: "cake",
+        icon: "pastel",
         name: "Cakes"
       },
       {
-        icon: "cookie",
+        icon: "galletas",
         name: "Cookies"
       }
 ]
