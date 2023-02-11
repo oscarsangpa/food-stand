@@ -1,6 +1,13 @@
+import { PrismaClient } from "@prisma/client"
+import Layout from "../layout/Layout"
 
-export default function Home() {
+export default function Home({children}) {
+  
+
   return (
-    <h1>Stand Food</h1>
+    <Layout>
+      Home
+    </Layout>
   )
 }
+
