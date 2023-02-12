@@ -1,12 +1,23 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import useStand from "../hooks/useStand"
 import { formatAmount } from "../helpers"
 
 export default function ModalProduct() {
-    const { product, handleChangeModal, handleAddOrder} = useStand()
+    const { product, handleChangeModal, handleAddOrder, order} = useStand()
     const { name, image, price } = product
     const [amount, setAmount] = useState(1)
+    const [edit, setEdit] = useState(false)
+
+    //check if order is already in the modal
+    useEffect(()=> {
+        if(order?.some(orderState => orderState.id === product.id)) {
+            const orderChange = order.find(orderState => orderState.id === product.id)
+            setEdit(true)
+            setAmount(orderChange.amount)
+        }
+    }, [product, order])
+
     return (
         <div className="md:flex gap-10">
             <div className="md:w-1/3">
@@ -82,7 +93,7 @@ export default function ModalProduct() {
                     className="bg-indigo-600 hover:bg-indigo-800 px-5 py-2 mt-5 text-white font-bold uppercase rounded"
                     onClick={() => handleAddOrder({...product, amount})}
                 >
-                    Add to order
+                   {edit ? "save changes" : "add to order"}
                 </button>
             </div>
         </div>

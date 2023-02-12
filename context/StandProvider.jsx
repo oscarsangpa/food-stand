@@ -50,6 +50,7 @@ const StandProvider = ({ children }) => {
         } else {
             setOrder([...order, product])
         }
+        setModal(false)
         
     }
     return (
@@ -62,7 +63,8 @@ const StandProvider = ({ children }) => {
                 handleSetProduct,
                 modal,
                 handleChangeModal,
-                handleAddOrder
+                handleAddOrder,
+                order
 
             }}
         >
