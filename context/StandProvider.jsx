@@ -53,9 +53,10 @@ const StandProvider = ({ children }) => {
             setOrder([...order, product])
             toast.success("Order added successfully!")
         }
-        setModal(false)
-        
+        setModal(false)   
     }
+
+
     return (
         <StandContext.Provider
             value={{
@@ -67,8 +68,7 @@ const StandProvider = ({ children }) => {
                 modal,
                 handleChangeModal,
                 handleAddOrder,
-                order
-
+                order,
             }}
         >
             {children}
