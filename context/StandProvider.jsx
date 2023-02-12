@@ -8,6 +8,7 @@ const StandProvider = ({ children }) => {
     const [currentCategory, setCurrentCategory] = useState({})
     const [product, setProduct] = useState({})
     const [modal, setModal] = useState(false)
+    const [order, setOrder] = useState([])
 
     const getCategories = async() => {
         const { data } = await axios("/api/categories")
@@ -37,6 +38,10 @@ const StandProvider = ({ children }) => {
         setModal(!modal)
     }
 
+    const handleAddOrder = ({categoryId, image, ...product}) => {
+        setOrder([...order, product])
+        
+    }
     return (
         <StandContext.Provider
             value={{
@@ -46,7 +51,8 @@ const StandProvider = ({ children }) => {
                 product,
                 handleSetProduct,
                 modal,
-                handleChangeModal
+                handleChangeModal,
+                handleAddOrder
 
             }}
         >
