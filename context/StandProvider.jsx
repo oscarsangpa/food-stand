@@ -39,7 +39,17 @@ const StandProvider = ({ children }) => {
     }
 
     const handleAddOrder = ({categoryId, image, ...product}) => {
-        setOrder([...order, product])
+
+        //check if the product is already added
+        if(order.some( productState => productState.id === product.id)) {
+            // update order amount
+            const updateOrder = order.map( productState => productState.id === product.id
+                ? product : productState )
+            setOrder(updateOrder)
+
+        } else {
+            setOrder([...order, product])
+        }
         
     }
     return (
