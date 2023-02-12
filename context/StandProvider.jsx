@@ -5,6 +5,8 @@ const StandContext = createContext()
 
 const StandProvider = ({ children }) => {
     const [categories, setCategories] = useState([])
+    const [currentCategory, setCurrentCategory] = useState({})
+
 
     const getCategories = async() => {
         const { data } = await axios("/api/categories")
@@ -14,16 +16,27 @@ const StandProvider = ({ children }) => {
     useEffect(()=> {
         getCategories()
     },[])
+
+    const handleDetectedCategory = (id) => {
+        const category = categories.filter( cat => cat.id === id)
+        setCurrentCategory(category[0])
+        
+    }
+
     return (
         <StandContext.Provider
             value={{
                 categories,
+                currentCategory,
+                handleDetectedCategory,
+
             }}
         >
             {children}
         </StandContext.Provider>
     )
 }
+
 
 export {
     StandProvider
