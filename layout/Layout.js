@@ -1,8 +1,10 @@
 import Head from "next/head"
 import Modal from "react-modal"
+import { ToastContainer } from "react-toastify"
 import ModalProduct from "../components/ModalProduct";
 import Sidebar from "../components/Sidebar"
 import useStand from "../hooks/useStand";
+import "react-toastify/dist/ReactToastify.css"
 
 
 
@@ -51,6 +53,7 @@ export default function Layout({ children, page }) {
            <ModalProduct/>
           </Modal>
         )}
+        <ToastContainer/>
       </>
     )
   }

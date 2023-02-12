@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const StandContext = createContext()
 
@@ -46,9 +47,11 @@ const StandProvider = ({ children }) => {
             const updateOrder = order.map( productState => productState.id === product.id
                 ? product : productState )
             setOrder(updateOrder)
+            toast.success("Saved changes correctly!")
 
         } else {
             setOrder([...order, product])
+            toast.success("Order added successfully!")
         }
         setModal(false)
         
