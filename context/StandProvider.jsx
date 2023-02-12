@@ -39,7 +39,7 @@ const StandProvider = ({ children }) => {
         setModal(!modal)
     }
 
-    const handleAddOrder = ({categoryId, image, ...product}) => {
+    const handleAddOrder = ({categoryId, ...product}) => {
 
         //check if the product is already added
         if(order.some( productState => productState.id === product.id)) {
