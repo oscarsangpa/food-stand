@@ -7,7 +7,7 @@ function Category({category}) {
 
   return (
     <div className={`${currentCategory?.id === id ? "bg-amber-400" : ""}
-        flex items-center gap-4 w-full border p-5 hover:bg-amber-400 rounded-xl`}>
+        flex items-center gap-4 w-full border p-5 hover:bg-amber-400 rounded`}>
         <Image
             width={70}
             height={70}

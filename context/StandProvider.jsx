@@ -6,6 +6,8 @@ const StandContext = createContext()
 const StandProvider = ({ children }) => {
     const [categories, setCategories] = useState([])
     const [currentCategory, setCurrentCategory] = useState({})
+    const [product, setProduct] = useState({})
+    const [modal, setModal] = useState(false)
 
     const getCategories = async() => {
         const { data } = await axios("/api/categories")
@@ -27,12 +29,24 @@ const StandProvider = ({ children }) => {
         
     }
 
+    const handleSetProduct = (product) => {
+        setProduct(product)
+    }
+
+    const handleChangeModal = () => {
+        setModal(!modal)
+    }
+
     return (
         <StandContext.Provider
             value={{
                 categories,
                 currentCategory,
                 handleDetectedCategory,
+                product,
+                handleSetProduct,
+                modal,
+                handleChangeModal
 
             }}
         >
