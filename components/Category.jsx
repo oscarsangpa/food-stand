@@ -7,7 +7,9 @@ function Category({category}) {
 
   return (
     <div className={`${currentCategory?.id === id ? "bg-amber-400" : ""}
-        flex items-center gap-4 w-full border p-5 hover:bg-amber-400 rounded`}>
+        flex items-center gap-4 w-full border p-5 hover:bg-amber-400 rounded hover:cursor-pointer`}
+        onClick={()=> handleDetectedCategory(id)}
+        >
         <Image
             width={70}
             height={70}
@@ -17,8 +19,7 @@ function Category({category}) {
 
         <button
             type="button"
-            className="text-2xl font-bold hover:cursor-pointer"
-            onClick={()=> handleDetectedCategory(id)}
+            className="text-2xl font-bold"
         >
             {name}
         </button>
