@@ -62,6 +62,12 @@ const StandProvider = ({ children }) => {
         setModal(!modal)
     }
 
+    const handleDeleteProduct = (id) => {
+        const deleteOrder = order.filter(product => product.id !== id)
+        setOrder(deleteOrder)
+
+    }
+
 
     return (
         <StandContext.Provider
@@ -75,7 +81,8 @@ const StandProvider = ({ children }) => {
                 handleChangeModal,
                 handleAddOrder,
                 order,
-                handleEditAmount
+                handleEditAmount,
+                handleDeleteProduct
             }}
         >
             {children}

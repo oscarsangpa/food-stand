@@ -4,7 +4,7 @@ import useStand from "../hooks/useStand"
 
 export default function OrderResume({product}) {
     const {name, image, price, amount, id} = product
-    const {handleEditAmount } = useStand()
+    const {handleEditAmount, handleDeleteProduct } = useStand()
 
 
   return (
@@ -46,6 +46,7 @@ export default function OrderResume({product}) {
                 <button
                     type="button"
                     className="bg-red-900 flex gap-2 px-5 py-2 text-white rounded-md font-bold uppercase shadow-md hover:bg-red-600 w-full mt-3"
+                    onClick={() => handleDeleteProduct(id)}
                 >
                     <svg 
                         xmlns="http://www.w3.org/2000/svg" fill="none" 
