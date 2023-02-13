@@ -1,9 +1,11 @@
 import Image from "next/image"
 import { formatAmount } from "../helpers"
+import useStand from "../hooks/useStand"
 
 export default function OrderResume({product}) {
+    const {name, image, price, amount, id} = product
+    const {handleEditAmount } = useStand()
 
-    const {name, image, price, amount} = product
 
   return (
     <div className="shadow p-5 mb-3 flex gap-10 items-center">
@@ -29,6 +31,7 @@ export default function OrderResume({product}) {
                 <button
                     type="button"
                     className="bg-sky-700 flex gap-2 px-5 py-2 text-white rounded-md font-bold uppercase shadow-md hover:bg-sky-900 w-full"
+                    onClick={() => handleEditAmount(id)}
                 >
                     <svg 
                         xmlns="http://www.w3.org/2000/svg" fill="none" 
