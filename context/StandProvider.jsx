@@ -11,6 +11,7 @@ const StandProvider = ({ children }) => {
     const [product, setProduct] = useState({})
     const [modal, setModal] = useState(false)
     const [order, setOrder] = useState([])
+    const [name, setName] = useState("")
     const router = useRouter()
 
     const getCategories = async() => {
@@ -85,7 +86,9 @@ const StandProvider = ({ children }) => {
                 handleAddOrder,
                 order,
                 handleEditAmount,
-                handleDeleteProduct
+                handleDeleteProduct,
+                name,
+                setName
             }}
         >
             {children}
