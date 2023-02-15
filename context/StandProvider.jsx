@@ -12,6 +12,7 @@ const StandProvider = ({ children }) => {
     const [modal, setModal] = useState(false)
     const [order, setOrder] = useState([])
     const [name, setName] = useState("")
+    const [total, setTotal] = useState(0)
     const router = useRouter()
 
     const getCategories = async() => {
@@ -22,6 +23,13 @@ const StandProvider = ({ children }) => {
     useEffect(()=> {
         getCategories()
     },[])
+
+    useEffect(()=> {
+        const newTotal = order.reduce((total, product) => (product.price * product.amount)
+        + total, 0)
+
+        setTotal(newTotal)
+    }, [order])
 
     // select default category when app start
     useEffect(()=> {
@@ -72,6 +80,12 @@ const StandProvider = ({ children }) => {
 
     }
 
+    const sendOrder = async(e) => {
+        e.preventDefault()
+
+        console.log("first")
+      }
+
 
     return (
         <StandContext.Provider
@@ -87,8 +101,10 @@ const StandProvider = ({ children }) => {
                 order,
                 handleEditAmount,
                 handleDeleteProduct,
+                sendOrder,
                 name,
-                setName
+                setName,
+                total
             }}
         >
             {children}

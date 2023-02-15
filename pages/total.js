@@ -1,9 +1,10 @@
 import { useEffect, useCallback } from "react"
 import Layout from "../layout/Layout"
 import useStand from "../hooks/useStand"
+import { formatAmount } from "../helpers"
 
 export default function Total() {
-  const { order, name, setName } = useStand()
+  const { order, sendOrder, name, setName, total } = useStand()
 
   const checkOrder = useCallback(() => {
     return order.length === 0 || name === "" | name.length === 3
@@ -13,12 +14,7 @@ export default function Total() {
     checkOrder()
   },[order, checkOrder])
 
-  const sendOrder = (e) => {
-    e.preventDefault()
-    console.log("first")
-  }
-
-
+ 
   return (
     <Layout page="Total">
         <h1 className="text-3xl font-black">Total</h1>
@@ -44,7 +40,7 @@ export default function Total() {
           </div>
           <div className="mt-10">
             <p className="text-2xl">Total to pay: {""} 
-            <span className="font-bold">100€</span>
+            <span className="font-bold">{formatAmount(total)}</span>
             </p>
           </div>
           <div className="mt-10">
