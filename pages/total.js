@@ -7,7 +7,7 @@ export default function Total() {
   const { order, sendOrder, name, setName, total } = useStand()
 
   const checkOrder = useCallback(() => {
-    return order.length === 0 || name === "" | name.length === 3
+    return order.length === 0 || name === "" | name.length < 3
   }, [order, name])
 
   useEffect(()=> {

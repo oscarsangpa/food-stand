@@ -82,8 +82,12 @@ const StandProvider = ({ children }) => {
 
     const sendOrder = async(e) => {
         e.preventDefault()
-
-        console.log("first")
+        try {
+            const { data } = await axios
+                .post("/api/orders", {order, name, total, date: Date.now().toString()})
+        } catch (error) {
+            console.log(error)
+        }
       }
 
 
