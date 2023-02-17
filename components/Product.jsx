@@ -15,7 +15,7 @@ export default function Product({ product }) {
             width={300}
             height={400}
         />
-        <div className="flex flex-col justify-self-stretch p-5 text-center">
+        <div className="flex flex-col p-5 text-center">
             <h3 className="text-2xl font-bold">{name}</h3>
             <p className="mt-5 font-black text-4xl text-amber-500">
                 {formatAmount(price)}
