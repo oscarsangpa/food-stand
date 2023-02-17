@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 const StandContext = createContext()
 
 const StandProvider = ({ children }) => {
+    
     const [categories, setCategories] = useState([])
     const [currentCategory, setCurrentCategory] = useState({})
     const [product, setProduct] = useState({})
@@ -59,7 +60,7 @@ const StandProvider = ({ children }) => {
             const updateOrder = order.map( productState => productState.id === product.id
                 ? product : productState )
             setOrder(updateOrder)
-            toast.success("Saved changes correctly!")
+            toast.success("Changes saved correctly!")
 
         } else {
             setOrder([...order, product])
@@ -83,8 +84,19 @@ const StandProvider = ({ children }) => {
     const sendOrder = async(e) => {
         e.preventDefault()
         try {
-            const { data } = await axios
-                .post("/api/orders", {order, name, total, date: Date.now().toString()})
+            await axios.post("/api/orders", {order, name, total, date: Date.now().toString()})
+
+            // Reset App
+            setCurrentCategory(categories[0])
+            setOrder([])
+            setName("")
+            setTotal(0)
+
+            toast.success("Order create sucessful!")
+
+            setTimeout(() => {
+                router.push("/")
+            }, 3000)
         } catch (error) {
             console.log(error)
         }
