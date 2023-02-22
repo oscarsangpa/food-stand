@@ -12,8 +12,8 @@ export default function Product({ product }) {
                 className="w-full h-[400px] mx-0 rounded"
                 src={`/assets/img/${image}.jpg`}
                 alt="Product image"
-                width={300}
-                height={400}
+                width={200}
+                height={300}
             />
 
             <div className="flex flex-col h-[calc(100%_-_400px)] p-5 text-center justify-between">

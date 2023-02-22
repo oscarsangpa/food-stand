@@ -11,7 +11,8 @@ export default function Sidebar() {
   return (
     <>
     <Link href="/">
-        <Image 
+        <Image
+            className="p-5"
             width={300} 
             height={100}
             src="/assets/img/logo.svg"
