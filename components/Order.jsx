@@ -1,11 +1,18 @@
 import Image from "next/image"
+import axios from "axios"
+import { toast } from "react-toastify"
 import {formatAmount} from "../helpers"
 
 export default function Order({ orderFood }) {
     const { id, name, total, order } = orderFood
 
-    const completeOrder = () => {
-        console.log('complete...', id)
+    const completeOrder = async () => {
+        try {
+           await axios.post(`/api/orders/${id}`) 
+           toast.success("Order ready!")
+        } catch (error) {
+            toast.error("Error ocurred in your order")
+        }
     }
 
     return (
