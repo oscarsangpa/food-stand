@@ -9,14 +9,14 @@ export default function Product({ product }) {
     return (
         <div className="p-3 border rounded">
             <Image
-                className="w-full h-[400px] mx-0 rounded"
+                className="w-full h-[300px] mx-0 rounded"
                 src={`/assets/img/${image}.jpg`}
                 alt="Product image"
                 width={200}
                 height={300}
             />
 
-            <div className="flex flex-col h-[calc(100%_-_400px)] p-5 text-center justify-between">
+            <div className="flex flex-col h-[calc(100%_-_300px)] p-5 text-center justify-between">
                 <h3 className="text-2xl font-bold">{name}</h3>
 
                 <div className="flex flex-col gap-5">
