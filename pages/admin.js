@@ -19,7 +19,7 @@ export default function Admin() {
                         orderFood={order} 
                     />
                 ))
-                : (<p>There's no pending orders 😄 </p>)
+                : <p>No orders pending 😄</p>
             }
         </AdminLayout>
     )
