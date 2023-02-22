@@ -7,5 +7,5 @@ ___
 + Next.js
 + MySQL as a database
 + Tailwind CSS for styles
-+ SWR for add and approve order in real time
++ SWR for add and approve orders in real time
 
