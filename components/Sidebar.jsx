@@ -12,9 +12,9 @@ export default function Sidebar() {
     <>
     <Link href="/">
         <Image
-            className="p-5"
-            width={300} 
-            height={100}
+            className="p-10 mx-5 pb-0 pt-5"
+            width={250} 
+            height={150}
             src="/assets/img/logo.svg"
             alt="Logo Stand Food"/>
 
