@@ -1,4 +1,4 @@
-A project of a stand of food where you can add, delete and edit products. [Link to project](https://food-stand.up.railway.app)
+A project of a stand of food where you can add, delete and edit products. [Link to project](https://food-stand.up.railway.app) (in maintenace)
 
 When, you can approve orders to clients in the [Panel Admin](https://food-stand.up.railway.app/admin)
 ___
